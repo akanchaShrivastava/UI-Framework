@@ -1,40 +1,65 @@
 package tests;
 
 
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-
-public class SimpleLoginTest {
-
-    ChromeDriver driver;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
 
-
-    @Test
-    public void testLogin(){
+public class SimpleLoginTest extends BaseTest {
 
 
-        String currentUsersWorkingDir = System.getProperty("user.dir");
-        System.out.println("Dir is " + currentUsersWorkingDir);
-        System.setProperty("webdriver.chrome.driver",currentUsersWorkingDir+"/src/test/resources/chromedriver");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.navigate().to("https://spree-vapasi.herokuapp.com");
-        driver.navigate().to("https://spree-vapasi.herokuapp.com");
+
+
+
+
+    @Test(priority = 1)
+    public void testLogin() {
+
+
+
         driver.findElement(By.id("link-to-login")).click();
         driver.findElement(By.id("spree_user_email")).sendKeys("spree@example.com");
         driver.findElement(By.id("spree_user_password")).sendKeys("spree123");
         driver.findElement(By.name("commit")).click();
-        driver.close();
-        driver.quit();
+
+
+        assertTrue(driver.findElement(By.id("home-page")).isDisplayed());
     }
 
 
+   @Test(priority =2)
+    public void adAProductToCart() throws InterruptedException {
+        driver.findElement(By.linkText("Ruby on Rails Bag")).click();
+      //  driver.findElement(By.xpath("//span[@title='Ruby on Rails Bag']")).click();
+        driver.findElement(By.id("add-to-cart-button")).click();
+}
+
+
+
+
+
+
+
+ /*   private boolean assertTrue() {
+        if(driver.findElement(By.className("nav-link text-white")).isDisplayed())
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+
+
+    }*/
 
 
 
