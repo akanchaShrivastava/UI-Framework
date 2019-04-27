@@ -21,8 +21,10 @@ public class SimpleLoginTest extends BaseTest {
 
 
 
-    @Test(priority = 1)
+    @Test(groups ="smoke",priority =1)
     public void testLogin() {
+
+        System.out.println("Before Method executes");
 
 
 
@@ -33,10 +35,15 @@ public class SimpleLoginTest extends BaseTest {
 
 
         assertTrue(driver.findElement(By.id("home-page")).isDisplayed());
+
+        System.out.println("After method executes" );
+      //  assertTrue(false);
     }
 
 
-   @Test(priority =2)
+   @Test(groups = "smoke",priority = 2)
+
+
     public void adAProductToCart() throws InterruptedException {
         driver.findElement(By.linkText("Ruby on Rails Bag")).click();
       //  driver.findElement(By.xpath("//span[@title='Ruby on Rails Bag']")).click();

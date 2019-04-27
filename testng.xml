@@ -1,21 +1,29 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite"><test verbose="2" preserve-order="true" name="/Users/vapasi/IdeaProjects/VapasiUiFramework/src/test/java/tests" parallel="classes">
 
-<suite name="smokesuite" verbose="10" >
-    <test name="smoke">
-        <!--<groups>-->
-        <!--<run>-->
-        <!--<include name="smoke"/>-->
-        <!--</run>-->
-        <!--</groups>-->
+    <groups>
+        <run>
+            <include name="smoke"/>
+        </run>
+    </groups>
+    <classes>
+        <class name="tests.AddingAProductToCartTest">
+            <methods><include name="adAProductToCart"/>
+            </methods></class>
+        <class name="tests.SampleTest1">
+            <methods><include name="view"/></methods>
 
-        <classes>
-            <class name="tests.AddingAProductToCartTest" />
-            <class name="tests.SimpleLoginTest" />
+    </class>
+        <class name="tests.SimpleLoginTest">
+            <methods><include name="testLogin"/>
+                <include name="adAProductToCart"/>
+            </methods></class>
+
+            <class name="tests.SampleTest2">
+                <methods><include name="view"/></methods>
 
 
-        </classes>
-
-    </test>
-
-</suite>
-
+        </class>
+    </classes>
+</test></suite>

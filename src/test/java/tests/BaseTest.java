@@ -2,18 +2,16 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     WebDriver driver;
 
-    @BeforeMethod
+    @BeforeClass(alwaysRun = true)
     public void setUp() {
+
         String currentUsersWorkingDir = System.getProperty("user.dir");
         System.out.println("Dir is " + currentUsersWorkingDir);
         System.setProperty("webdriver.chrome.driver", currentUsersWorkingDir + "/src/test/resources/chromedriver");
@@ -22,10 +20,10 @@ public class BaseTest {
         driver.navigate().to("https://spree-vapasi.herokuapp.com");
 
     }
-    @AfterMethod
+    @AfterClass(alwaysRun = true)
     public void teardown() {
 
-
+        driver.manage().deleteAllCookies();
         driver.close();
         driver.quit();
     }
