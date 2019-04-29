@@ -2,8 +2,6 @@ package tests;
 
 
 import org.testng.annotations.Test;
-import pages.AddToCartPage;
-import pages.ProductLisingPage;
 import pages.LoginPage;
 import pages.ShoppingCartPage;
 
@@ -13,25 +11,79 @@ public class AddingAProductToCartTest extends BaseTest {
 
     @Test(groups = "smoke", priority = 1)
 
-    public void addProductToShoppingCart() throws InterruptedException {
+    public void addProductToShoppingCartUpdatingAndCheckingOut() throws InterruptedException {
 
 
         LoginPage loginPage = new LoginPage(driver);
 
-        loginPage.login("spree@example.com", "spree123");
+        ShoppingCartPage shoppingCartPage = loginPage.login("spree@example.com", "spree123").
+                listOfProducts("Bags").
+                addToShoppingCart("Ruby on Rails Bag");
+        assertTrue(shoppingCartPage.getNumberOfProducts() == 1);
+        assertTrue(shoppingCartPage.ifElementIsInTheCart());
 
-        ProductLisingPage pListing = new ProductLisingPage(driver);
-        pListing.listOfProducts();
+        shoppingCartPage.update().clickOnCheckout();
 
-        AddToCartPage addToCartPage=new AddToCartPage(driver);
-        addToCartPage.addToShoppingCart("Ruby on Rails Bag");
 
-        ShoppingCartPage sCart = new ShoppingCartPage(driver);
+        // shoppingCartPage.clickOnEmptyCart();
 
-      //  assertTrue(sCart.checkShoppingCart() == 1);
-        assertTrue(sCart.ifElementIsInTheCart());
+
+
+
     }
+
+    @Test
+    public void EmptyCart(){
+        LoginPage loginPage = new LoginPage(driver);
+
+        ShoppingCartPage shoppingCartPage = loginPage.login("spree@example.com", "spree123").
+                listOfProducts("Bags").
+                addToShoppingCart("Ruby on Rails Bag");
+        shoppingCartPage.clickOnEmptyCart().isCartEmpty();
+
+
+
+
+    }
+
+
+    @Test
+    public void updateCart(){
+
+
+
+
+            LoginPage loginPage = new LoginPage(driver);
+
+            ShoppingCartPage shoppingCartPage = loginPage.login("spree@example.com", "spree123").
+                    listOfProducts("Bags").
+                    addToShoppingCart("Ruby on Rails Bag");
+            assertTrue(shoppingCartPage.getNumberOfProducts() == 1);
+            assertTrue(shoppingCartPage.ifElementIsInTheCart());
+
+            shoppingCartPage.update();
+
+
+    }
+
+
+
+    @Test
+
+    public void checkoutCart(){
+
+                                                             
+
+
+    }
+
+
 }
+
+
+
+
+
 
 
 

@@ -13,11 +13,13 @@ public class AddToCartPage {
 
     }
 
-    public void addToShoppingCart(String Product) {
+    public ShoppingCartPage addToShoppingCart(String Product) {
         driver.findElement(By.linkText(Product)).click();
         //  driver.findElement(By.xpath("//span[@title='Ruby on Rails Bag']")).click();
         driver.findElement(By.id("add-to-cart-button")).click();
         // driver.findElement(By.linkText("Ruby on Rails Bag"));
+
+        return new ShoppingCartPage(driver);
 
     }
 }

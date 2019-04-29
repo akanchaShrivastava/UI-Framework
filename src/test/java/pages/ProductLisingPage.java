@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class ProductLisingPage {
 
@@ -16,10 +15,12 @@ public class ProductLisingPage {
 
 
     }
-    public void listOfProducts(){
+    public AddToCartPage listOfProducts(String Category){
 
-        driver.findElement(By.linkText("Bags")).click();
-        List<WebElement> list=
+        driver.findElement(By.linkText(Category)).click();
+
+
+return new AddToCartPage(driver);
         //System.out.println();
 
 

@@ -17,7 +17,7 @@ public class LoginPage {
 
     }
 
-    public void login(String emailid, String password) {
+    public ProductLisingPage  login(String emailid, String password) {
 
 
 
@@ -25,5 +25,6 @@ public class LoginPage {
         driver.findElement(By.id("spree_user_email")).sendKeys(emailid);
         driver.findElement(By.id("spree_user_password")).sendKeys(password);
         driver.findElement(By.name("commit")).click();
+        return new ProductLisingPage(driver);
     }
 }
