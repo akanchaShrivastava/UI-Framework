@@ -1,15 +1,11 @@
 package tests;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+import pages.AddToCartPage;
 import pages.ProductLisingPage;
 import pages.LoginPage;
-import pages.ShoppingCart;
-
-import java.util.Iterator;
-import java.util.List;
+import pages.ShoppingCartPage;
 
 import static org.testng.Assert.*;
 
@@ -25,12 +21,15 @@ public class AddingAProductToCartTest extends BaseTest {
         loginPage.login("spree@example.com", "spree123");
 
         ProductLisingPage pListing = new ProductLisingPage(driver);
-        pListing.addToShoppingCart();
+        pListing.listOfProducts();
 
-        ShoppingCart sCart = new ShoppingCart(driver);
+        AddToCartPage addToCartPage=new AddToCartPage(driver);
+        addToCartPage.addToShoppingCart("Ruby on Rails Bag");
 
-        assertTrue(sCart.checkShoppingCart() == 1);
-        assertTrue(sCart.iteratingShoppingCart().trim().contains("Ruby on Rails Bag".trim()));
+        ShoppingCartPage sCart = new ShoppingCartPage(driver);
+
+      //  assertTrue(sCart.checkShoppingCart() == 1);
+        assertTrue(sCart.ifElementIsInTheCart());
     }
 }
 

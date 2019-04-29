@@ -9,13 +9,13 @@ import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 
-public class ShoppingCart {
+public class ShoppingCartPage {
 
     WebDriver driver;
     WebElement product;
 
 
-    public ShoppingCart(WebDriver driver) {
+    public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;
 
 
@@ -46,5 +46,9 @@ public class ShoppingCart {
         }
 
         return product.getText();
+    }
+    public boolean ifElementIsInTheCart(){
+       return iteratingShoppingCart().trim().contains("Ruby on Rails Bag".trim());
+
     }
 }
