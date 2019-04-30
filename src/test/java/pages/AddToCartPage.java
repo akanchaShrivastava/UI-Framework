@@ -14,8 +14,9 @@ public class AddToCartPage {
     }
 
     public ShoppingCartPage addToShoppingCart(String Product) {
-        driver.findElement(By.linkText(Product)).click();
-        //  driver.findElement(By.xpath("//span[@title='Ruby on Rails Bag']")).click();
+        System.out.println(Product);
+        driver.findElement(By.linkText(Product.trim())).click();
+         // driver.findElement(By.xpath("//span[@title='Product']")).click();
         driver.findElement(By.id("add-to-cart-button")).click();
         // driver.findElement(By.linkText("Ruby on Rails Bag"));
 

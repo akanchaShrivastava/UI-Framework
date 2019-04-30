@@ -50,12 +50,16 @@ public class ShoppingCartPage {
 
             driver.findElement(By.id("order_line_items_attributes_0_quantity")).clear();
             driver.findElement(By.id("order_line_items_attributes_0_quantity")).sendKeys("8");
+            System.out.println(driver.findElement(By.id("order_line_items_attributes_0_quantity")).getText());
+
 
             return this;
 
 
 
         }
+
+
         public CheckOutPage clickOnCheckout(){
 
         driver.findElement(By.name("checkout")).click();
