@@ -12,7 +12,7 @@ import java.net.URL;
 public class LoginPage {
 
 
-    private final WebDriver driver;
+    private  WebDriver driver;
     @FindBy(id = "link-to-login")
     private WebElement login_link;
 
