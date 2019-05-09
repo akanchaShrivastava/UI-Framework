@@ -42,7 +42,7 @@ public class AddingAProductToCartTest extends BaseTest {
         };
     }
 
-    @Test
+   @Test
     public void EmptyCart() {
         LoginPage loginPage = new LoginPage(driver);
 
@@ -55,7 +55,7 @@ public class AddingAProductToCartTest extends BaseTest {
     }
 
 
-    @Test
+    @Test(priority = 2)
     public void updateCart() {
 
 
@@ -73,7 +73,7 @@ public class AddingAProductToCartTest extends BaseTest {
     }
 
 
-    @Test
+    @Test(priority = 3)
     public void checkoutCart() {
 
         LoginPage loginPage = new LoginPage(driver);

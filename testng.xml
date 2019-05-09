@@ -8,16 +8,14 @@
         </run>
     </groups>
 
-    <listeners>
-        <listener class-name="/Users/vapasi/IdeaProjects/VapasiUiFramework/target/surefire-reports/emailable-report.html"></listener>
-    </listeners>
 
 
     <classes>
         <class name="tests.AddingAProductToCartTest">
             <methods><include name="adAProductToCart"/>
             </methods></class>
-        
+
+
         <class name="tests.SimpleLoginTest">
             <methods><include name="testLogin"/>
                 <include name="adAProductToCart"/>
