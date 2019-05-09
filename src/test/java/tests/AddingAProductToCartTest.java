@@ -55,7 +55,7 @@ public class AddingAProductToCartTest extends BaseTest {
     }
 
 
-    @Test(priority = 2)
+    @Test()
     public void updateCart() {
 
 
@@ -73,7 +73,7 @@ public class AddingAProductToCartTest extends BaseTest {
     }
 
 
-    @Test(priority = 3)
+    @Test()
     public void checkoutCart() {
 
         LoginPage loginPage = new LoginPage(driver);

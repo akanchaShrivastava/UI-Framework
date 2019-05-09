@@ -16,7 +16,7 @@ public class BaseTest {
     String browser;
 
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void setUp() throws IOException {
 
         String currentUsersWorkingDir = System.getProperty("user.dir");
@@ -43,7 +43,7 @@ public class BaseTest {
         driver.navigate().to(prop.getProperty("url"));
 
     }
-    @AfterTest(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void teardown() {
 
         driver.manage().deleteAllCookies();
